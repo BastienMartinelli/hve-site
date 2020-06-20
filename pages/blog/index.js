@@ -10,19 +10,11 @@ function Blog({ slugs }) {
       <Head>
         <title>blog</title>
       </Head>
-      <h>Blog</h>
-      <section class="hero">
-        <div class="hero-body">
-          <div class="container">
-            <h1 class="title">Hero title</h1>
-            <h2 class="subtitle">Hero subtitle</h2>
-          </div>
-        </div>
-      </section>
+      <h1>Blog</h1>
       <ul>
         {slugs.map((slug) => (
-          <li>
-            <Link key={slugs} href={`blog/${slug}`}>
+          <li key={slugs}>
+            <Link href={`blog/${slug}`}>
               <a>{slug}</a>
             </Link>
           </li>

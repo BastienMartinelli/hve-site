@@ -1,4 +1,6 @@
 import React from "react";
+import Link from "next/link";
+
 import "../styles/styles.sass";
 
 function App({ Component, pageProps }) {
@@ -24,9 +26,15 @@ function App({ Component, pageProps }) {
 
         <div className="navbar-menu">
           <div className="navbar-start">
-            <a className="navbar-item">Home</a>
-            <a className="navbar-item">Contact</a>
-            <a className="navbar-item">Blog</a>
+            <Link href="/">
+              <a className="navbar-item">Home</a>
+            </Link>
+            <Link href="/contact">
+              <a className="navbar-item">Contact</a>
+            </Link>
+            <Link href="/blog">
+              <a className="navbar-item">Blog</a>
+            </Link>
           </div>
         </div>
       </nav>
