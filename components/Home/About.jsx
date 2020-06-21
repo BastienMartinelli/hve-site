@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 function About() {
+  const [showInsta, setShowInsta] = useState(false);
+
   return (
     <div className="section-light about-me">
       <div className="container">
@@ -25,16 +27,27 @@ function About() {
                   <i className="fa fa-linkedin"></i>
                 </span>
               </a>
-              <a className="button  is-rounded" href="https://www.facebook.com/ateliersdiet/">
+              <a className="button is-rounded" href="https://www.facebook.com/ateliersdiet/">
                 <span className="icon is-small">
                   <i className="fa fa-facebook"></i>
                 </span>
               </a>
-              <a className="button  is-rounded">
+              <div className={`modal ${showInsta ? "is-active" : ""}`}>
+                {showInsta && (
+                  <>
+                    <div data-aos="fade" className="modal-background" onClick={() => setShowInsta(false)} />
+                    <div data-aos="fade-up" className="modal-content">
+                      <img src="/insta.png" className="insta" />
+                    </div>
+                  </>
+                )}
+                <button className="modal-close is-large" aria-label="close" onClick={() => setShowInsta(false)} />
+              </div>
+              <button className="button is-rounded" onClick={() => setShowInsta(true)}>
                 <span className="icon is-small">
                   <i className="fa fa-instagram"></i>
                 </span>
-              </a>
+              </button>
             </div>
 
           </div>
@@ -78,6 +91,15 @@ function About() {
 
         .icons > * {
           margin: 8px;
+        }
+
+        .modal-content {
+          display: flex;
+          justify-content: center;
+        }
+
+        .insta {
+          max-width: 300px;
         }
       `}</style>
     </div>
